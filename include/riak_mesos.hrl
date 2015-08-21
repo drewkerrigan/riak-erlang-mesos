@@ -22,9 +22,9 @@
 %%% Macros
 %%%===================================================================
 
--define(SCHEDULER_BASE_ROUTE, "api/v1").
+-define(SCHEDULER_BASE_ROUTE, "/api/v1").
 
--record (provision_request,{ 
+-record (provision_request,{
     identifier,
     name,
     type,

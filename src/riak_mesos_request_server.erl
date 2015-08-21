@@ -5,13 +5,13 @@
 -include ("riak_mesos.hrl").
 
 -export ([new_request/1, match_next_request/1,close_request/1]).
--export ([start_link/0]).
+-export ([start_link/1]).
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 
 -define (PENDING_REQUESTS_STORE_TABLE_ID, riak_mesos_pending_requests_store).
 
 %% Public API
-start_link() ->
+start_link(_Args) ->
   gen_server:start({local, ?MODULE}, ?MODULE, [], []).
 
 new_request(Request) when is_record(Request, provision_request)->

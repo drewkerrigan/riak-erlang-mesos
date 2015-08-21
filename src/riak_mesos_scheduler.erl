@@ -23,7 +23,7 @@
 
 % api
 init(MasterLocation) ->
-    FrameworkInfo = #'FrameworkInfo'{user="", name="Merkxx"},
+    FrameworkInfo = #'FrameworkInfo'{user="", name="riak"},
     State = [],
     {FrameworkInfo, MasterLocation, State}.
 
@@ -111,7 +111,7 @@ examine_ranges_offer([{'Value.Range',From,To} | T], Acc) ->
 provision_requests(_,_, []) -> ok;
 provision_requests(SlaveId, OfferId, [ #provision_request{ type= <<"command">>, identifier=Identifier , name=Name, start_command=Command, cpu=RequestedCpu, memory=RequestedMemory } | T]) ->
 
-        UniqueName = "Merkxx_Command_" ++ Name ++ "_" ++ Identifier,
+        UniqueName = "Riak_Command_" ++ Name ++ "_" ++ Identifier,
         Scalar = mesos_pb:enum_symbol_by_value('Value.Type', 0),
         CpuResource = #'Resource'{name="cpus", type=Scalar, scalar=#'Value.Scalar'{value=RequestedCpu}},
         MemoryResource = #'Resource'{name="mem", type=Scalar, scalar=#'Value.Scalar'{value=RequestedMemory}},
@@ -130,7 +130,7 @@ provision_requests(SlaveId, OfferId, [ #provision_request{ type= <<"command">>, 
         provision_requests(SlaveId, OfferId,T);
 provision_requests(SlaveId, OfferId, [ #provision_request{ type= <<"docker">>, identifier=Identifier , name=Name, start_command=Command, cpu=RequestedCpu, memory=RequestedMemory, docker_image=DockerImage } | T]) ->
 
-        UniqueName = "Merkxx_Docker_" ++ Name ++ "_" ++ Identifier,
+        UniqueName = "Riak_Docker_" ++ Name ++ "_" ++ Identifier,
         Scalar = mesos_pb:enum_symbol_by_value('Value.Type', 0),
         CpuResource = #'Resource'{name="cpus", type=Scalar, scalar=#'Value.Scalar'{value=RequestedCpu}},
         MemoryResource = #'Resource'{name="mem", type=Scalar, scalar=#'Value.Scalar'{value=RequestedMemory}},

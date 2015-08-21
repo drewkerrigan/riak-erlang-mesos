@@ -39,7 +39,7 @@
 %%%===================================================================
 
 routes() ->
-     [[?riak_mesos_BASE_ROUTE] ++ ["status"]].
+     [[?SCHEDULER_BASE_ROUTE] ++ ["status"]].
 
 dispatch() -> lists:map(fun(Route) -> {Route, ?MODULE, []} end, routes()).
 
