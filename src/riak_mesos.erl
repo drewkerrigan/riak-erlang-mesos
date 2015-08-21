@@ -22,8 +22,8 @@
 -behaviour(application).
 
 -export([start/2, stop/1]).
-
 -export([web_host_port/0]).
+-export([run_command/2, run_docker_container/3]).
 
 -include("riak_mesos.hrl").
 
