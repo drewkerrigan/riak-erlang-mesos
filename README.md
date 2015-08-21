@@ -1,2 +1,3 @@
-# riak-erlang-mesos
-PoC Mesos Framework in Erlang for Riak
+# Riak Mesos
+
+PoC for Riak Mesos Framework in Erlang
